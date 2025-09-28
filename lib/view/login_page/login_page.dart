@@ -28,7 +28,7 @@ class _LoginPage extends State<LoginPage> {
 
       if (!mounted) return;
 
-      if (val) {
+      if (val == true) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -61,7 +61,31 @@ class _LoginPage extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text("Вход"))),
+      appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('Вход'),
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                      const RegisterPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 500),
+                    ),
+                  );
+                },
+              ),
+            ],
+          )
+      ),
       body: Padding(
           padding: const EdgeInsets.only(
             left: 16,

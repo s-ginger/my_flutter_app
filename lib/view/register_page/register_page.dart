@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_notesflutter/view/login_page/login_page.dart';
 import '../view.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -60,7 +61,31 @@ class _RegisterPage extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text("Регистрация"))),
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // ← разнести по сторонам
+          children: [
+            const Text('Регистрация'),
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                    const LoginPage(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                    transitionDuration: Duration(milliseconds: 500),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(
           left: 16,
