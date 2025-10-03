@@ -42,7 +42,7 @@ class _RegisterPage extends State<RegisterPage> {
           context,
           PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const MyHomePage(title: "Home page"),
+                const HomePage(title: "Home page"),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
