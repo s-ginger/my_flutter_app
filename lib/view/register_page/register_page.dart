@@ -100,9 +100,16 @@ class _RegisterPage extends State<RegisterPage> {
               TextFormField(
                 controller: _usernameController,
                 obscureText: false,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0), // закругление углов
+                    borderSide: const BorderSide(
+                      color: Colors.blue, // цвет рамки
+                      width: 2.0,         // толщина рамки
+                    ),
+                  ),
+                  prefixIcon: const Icon(Icons.person),
                   labelText: "Введите имя",
-                  border: UnderlineInputBorder(),
                 ),
                 validator: (value) =>
                     value == null || value.isEmpty ? "Введите имя" : null,
@@ -113,8 +120,15 @@ class _RegisterPage extends State<RegisterPage> {
                 controller: _passwordController,
                 obscureText: _isObscure,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock),
                   labelText: 'Введите пароль',
-                  border: const UnderlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0), // закругление углов
+                    borderSide: const BorderSide(
+                      color: Colors.blue, // цвет рамки
+                      width: 2.0,         // толщина рамки
+                    ),
+                  ),
                   suffixIcon: IconButton(
                     icon: Icon(
                       _isObscure ? Icons.visibility : Icons.visibility_off,
@@ -135,9 +149,16 @@ class _RegisterPage extends State<RegisterPage> {
               TextFormField(
                 controller: _confirmPasswordController,
                 obscureText: _isObscure,
-                decoration: const InputDecoration(
+                decoration:  InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0), // закругление углов
+                    borderSide: const BorderSide(
+                      color: Colors.blue, // цвет рамки
+                      width: 2.0,         // толщина рамки
+                    ),
+                  ),
+                  prefixIcon: Icon(Icons.lock),
                   labelText: "Подтвердите пароль",
-                  border: UnderlineInputBorder(),
                 ),
                 validator: (value) => value != _passwordController.text
                     ? "Пароли не совпадают"
