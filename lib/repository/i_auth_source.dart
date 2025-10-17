@@ -1,7 +1,7 @@
 
 
 
-abstract interface class IAuthSource {
+abstract interface class IAuthRepository {
   String? get token;
   String? get username;
   Future<bool> register({required String username, required String password});

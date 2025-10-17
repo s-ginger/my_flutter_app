@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:my_notesflutter/repository/repository.dart';
 
 class DataWidget extends InheritedWidget {
-  final AuthRepository authRepo;
+  final IAuthRepository authRepo;
 
   const DataWidget({
     required this.authRepo,
