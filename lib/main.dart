@@ -13,10 +13,10 @@ Future<void> main() async {
 
   runApp(
     DataWidget(
-      authRepo: AuthRepository(),
+      authRepo: SupabaseRepository(client: Supabase.instance.client),
       child: const MyApp()
     )
   );
 }
 
-final supabase = Supabase.instance.client;
+
